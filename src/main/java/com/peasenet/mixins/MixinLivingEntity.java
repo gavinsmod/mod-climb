@@ -36,7 +36,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class MixinLivingEntity {
     @Inject(at = @At("RETURN"), method = "isClimbing", cancellable = true)
     public void onLadder(CallbackInfoReturnable<Boolean> cir) {
-        if (GavinsMod.isEnabled(Type.CLIMB)) {
+        if (GavinsMod.isEnabled("climb")) {
             boolean enabled = ((LivingEntity) (Object) this).horizontalCollision;
             cir.setReturnValue(enabled);
         }
